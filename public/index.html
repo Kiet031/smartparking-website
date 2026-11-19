@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tìm hiểu Smart Parking, hệ thống quản lý bãi xe bằng thẻ RFID và camera. Xem quy trình xe vào, xe ra và thử mô phỏng ngay trên trình duyệt.">
+  <meta name="theme-color" content="#f4f8ff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Smart Parking | Hệ thống quản lý bãi xe">
+  <meta property="og:description" content="Khám phá quy trình gửi xe bằng thẻ RFID, camera và xác nhận của bảo vệ.">
+  <title>Smart Parking | Hệ thống quản lý bãi xe</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="demo.js"></script>
+</head>
+<body id="dau-trang">
+  <a class="skip" href="#noi-dung">Chuyển đến nội dung</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M3 10h18m-14 5h4"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="3"/><path d="m15.5 10 6-3v10l-6-3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2.5 8 3.7v5.2c0 4.8-3.4 8-8 10.1-4.6-2.1-8-5.3-8-10.1V6.2l8-3.7z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M20 8V6a2 2 0 0 0-2-2H6a3.5 3.5 0 0 0 0 7h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H6a3.5 3.5 0 0 1-3.5-3.5v-9"/><path d="M22 14h-5a1.5 1.5 0 0 0 0 3h5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16M9 15v-4m5 4V7m5 8V4"/></symbol>
+    <symbol id="i-display" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4m-4 0h8"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7.5" rx="2"/><rect x="3" y="13.5" width="18" height="7.5" rx="2"/><path d="M7 6.75h.1M7 17.25h.1M11 6.75h6m-6 10.5h6"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="5" rx="1.5"/><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#dau-trang"><span class="brand-mark" aria-hidden="true">P</span> Smart<span class="brand-blue">Parking</span></a>
+      <button class="menu-button" type="button" aria-controls="nav" aria-expanded="false" hidden><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> Menu</button>
+      <nav id="nav" aria-label="Điều hướng chính">
+        <a href="#quy-trinh">Quy trình</a>
+        <a href="#tinh-nang">Tính năng</a>
+        <a href="#he-thong">Hệ thống</a>
+        <a href="#hoi-dap">Hỏi đáp</a>
+        <a class="nav-cta" href="#mo-phong">Thử mô phỏng</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="noi-dung">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker"><span></span> Dự án Smart Parking</p>
+          <h1 id="hero-title">Quản lý bãi xe<br><em>thông minh</em></h1>
+          <p class="lead">Thẻ gửi xe, camera và phần mềm tại quầy bảo vệ phối hợp để ghi nhận xe vào, đối chiếu khi xe ra và lưu lại từng lượt gửi.</p>
+          <div class="actions">
+            <a class="button primary" href="#mo-phong"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> Thử mô phỏng</a>
+            <a class="button secondary" href="#quy-trinh">Xem quy trình</a>
+          </div>
+        </div>
+        <figure class="hero-figure">
+          <img class="hero-image" src="assets/cong-bai-xe.jpg" width="1536" height="1024" fetchpriority="high" alt="Mô hình cổng bãi xe máy với hai làn, chốt bảo vệ, camera và thanh chắn">
+          <figcaption>Minh họa mô hình cổng bãi xe</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap" id="quy-trinh" aria-labelledby="flow-title">
+      <div class="section-head">
+        <p class="kicker">Quy trình</p>
+        <h2 id="flow-title">Một lượt gửi xe diễn ra thế nào?</h2>
+        <p>Người gửi đưa thẻ gần đầu đọc. Màn hình tập hợp thông tin để bảo vệ kiểm tra và quyết định cho xe qua cổng.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg></span><div><h3>Quẹt thẻ</h3><p>Đầu đọc gửi mã thẻ. Phần mềm kiểm tra thẻ và xác định đây là lượt vào hay lượt ra.</p></div></li>
+        <li><span class="step-icon cyan"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span><div><h3>Chụp và đối chiếu</h3><p>Camera ghi ảnh ở cổng. Khi xe ra, bảo vệ có thể xem lại ảnh lúc vào để đối chiếu.</p></div></li>
+        <li><span class="step-icon mint"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><div><h3>Xác nhận cho xe qua</h3><p>Bảo vệ duyệt lượt xe. Phần mềm ghi giờ vào hoặc hoàn tất lượt gửi cùng khoản phí nếu có.</p></div></li>
+      </ol>
+
+      <div class="demo" id="mo-phong">
+        <div class="demo-copy">
+          <p class="kicker">Mô phỏng tương tác</p>
+          <h3>Thử một lượt xe qua cổng</h3>
+          <p>Chọn làn, quẹt thẻ mẫu và xác nhận như tại quầy bảo vệ. Bạn có thể thử cả lượt vào và lượt ra.</p>
+          <p class="demo-note"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> Sử dụng dữ liệu giả lập</p>
+        </div>
+        <div class="demo-console" data-demo-step="0">
+          <noscript><p>Bật JavaScript trong trình duyệt để sử dụng bản mô phỏng.</p></noscript>
+          <div id="demo-controls" hidden>
+            <fieldset class="lane-picker">
+              <legend>Chọn làn xe</legend>
+              <label><input type="radio" name="lane" value="entry" checked><span>Làn vào</span></label>
+              <label><input type="radio" name="lane" value="exit"><span>Làn ra</span></label>
+            </fieldset>
+            <div class="demo-status" role="status" aria-atomic="true">
+              <span class="status-icon"><svg class="icon" aria-hidden="true"><use id="demo-icon" href="#i-card"/></svg></span>
+              <div><strong id="demo-title">Chờ quẹt thẻ</strong><p id="demo-text">Bấm “Quẹt thẻ mẫu” để bắt đầu lượt xe vào.</p></div>
+            </div>
+            <ol class="demo-progress" aria-label="Tiến trình mô phỏng">
+              <li aria-current="step">Quẹt thẻ</li><li>Kiểm tra</li><li>Hoàn tất</li>
+            </ol>
+            <div class="actions demo-actions">
+              <button class="button primary" id="demo-next" type="button">Quẹt thẻ mẫu</button>
+              <button class="button secondary" id="demo-reset" type="button" disabled>Đặt lại</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-section" id="tinh-nang" aria-labelledby="feature-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Tính năng</p>
+          <h2 id="feature-title">Từ quầy bảo vệ đến quản lý bãi xe</h2>
+          <p>Mỗi nhóm chức năng phục vụ một việc cụ thể trong ca trực hoặc khi cần kiểm tra lại một lượt gửi.</p>
+        </div>
+        <div class="features">
+          <article><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><h3>Vận hành tại cổng</h3><p>Kiểm tra thẻ, hiển thị xe đang trong bãi, hỗ trợ phím tắt và âm báo. Trạm xử lý từng lượt để bảo vệ có thời gian kiểm tra trước khi duyệt.</p></article>
+          <article><span class="step-icon cyan"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span><h3>Camera và ảnh đối chiếu</h3><p>Có thể kết nối tối đa bốn góc camera, gồm trước và sau ở mỗi làn. Ảnh chụp theo lượt hỗ trợ kiểm tra khi xe ra hoặc tra cứu về sau.</p></article>
+          <article><span class="step-icon mint"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg></span><h3>Thẻ và vé tháng</h3><p>Quản lý loại thẻ, trạng thái và hạn sử dụng. Hồ sơ vé tháng có thể đăng ký từng người hoặc nhập theo danh sách Excel/CSV.</p></article>
+          <article><span class="step-icon mint"><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg></span><h3>Phí gửi và số dư</h3><p>Phần mềm tính phí theo loại thẻ và cấu hình. Với hồ sơ có ví, khoản phí đủ điều kiện có thể được trừ vào số dư và ghi lại trong lịch sử ví.</p></article>
+          <article><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-log"/></svg></span><h3>Tra cứu và quản lý dữ liệu</h3><p>Tìm theo mã thẻ, biển số hoặc thời gian. Xem chi tiết và ảnh vào, ra. Người có quyền quản lý có thể chỉnh sửa hồ sơ và xuất kết quả ra CSV.</p></article>
+          <article><span class="step-icon cyan"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span><h3>Báo cáo doanh thu</h3><p>Xem khoản thu từ lịch sử gửi xe để kiểm tra và tổng hợp doanh thu. Dữ liệu lượt gửi giúp đối chiếu lại từng giao dịch khi cần.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="he-thong" aria-labelledby="system-title">
+      <div class="section-head">
+        <p class="kicker">Hệ thống</p>
+        <h2 id="system-title">Các bộ phận kết nối ra sao?</h2>
+        <p>Thiết bị ở cổng chuyển thông tin về máy trực. Các trạm có thể dùng chung hồ sơ và ảnh qua mạng nội bộ của bãi xe.</p>
+      </div>
+      <ol class="architecture">
+        <li><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg></span><h3>Thiết bị tại cổng</h3><p>Đầu đọc nhận mã từ thẻ RFID. Camera truyền hình ảnh về máy của bảo vệ.</p></li>
+        <li><span class="step-icon cyan"><svg class="icon" aria-hidden="true"><use href="#i-display"/></svg></span><h3>Máy trực Windows</h3><p>Ứng dụng C# hiển thị dữ liệu để bảo vệ duyệt. Cài đặt thiết bị được lưu riêng theo từng trạm.</p></li>
+        <li><span class="step-icon mint"><svg class="icon" aria-hidden="true"><use href="#i-server"/></svg></span><h3>Máy chủ nội bộ</h3><p>PostgreSQL lưu thẻ, hồ sơ và lượt xe. Ảnh được lưu ở thư mục dùng chung để các trạm có quyền xem lại.</p></li>
+      </ol>
+      <div class="maintenance">
+        <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg></span>
+        <div><h3>Bảo trì và sao lưu</h3><p>Dịch vụ bảo trì riêng hỗ trợ sao lưu cơ sở dữ liệu và ảnh, chuẩn bị nơi lưu lượt gửi cho các tháng tiếp theo, và xử lý ảnh giao dịch cũ theo thời hạn cấu hình. Khi dọn ảnh cũ, bản ghi lượt gửi vẫn được giữ lại.</p></div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="hoi-dap" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div class="section-head"><p class="kicker">Hỏi đáp</p><h2 id="faq-title">Những câu hỏi thường gặp</h2></div>
+        <div class="faq">
+          <details><summary>Thẻ RFID là gì?</summary><p>Đây là loại thẻ có mã nhận diện đọc được khi đưa đến gần đầu đọc. Smart Parking dùng mã này để tìm thẻ và lượt gửi liên quan.</p></details>
+          <details><summary>Camera giúp gì khi xe ra?</summary><p>Ảnh lúc vào giúp bảo vệ đối chiếu với xe đang ở cổng ra. Hồ sơ vé tháng có thể cung cấp thêm biển số và ảnh đã đăng ký để kiểm tra.</p></details>
+          <details><summary>Thanh chắn có tự mở khi quẹt thẻ không?</summary><p>Phần mềm chờ bảo vệ xác nhận trên màn hình. Để điều khiển thanh chắn vật lý, bãi xe cần tích hợp bộ điều khiển tương thích.</p></details>
+          <details><summary>Điều gì xảy ra khi hệ thống không tìm thấy mã thẻ?</summary><p>Ứng dụng hiển thị cảnh báo để bảo vệ kiểm tra lại thẻ trước khi tiếp tục. Bản mô phỏng trên trang sử dụng thẻ mẫu hợp lệ ở cả hai làn.</p></details>
+          <details><summary>Ai có thể chỉnh sửa dữ liệu và cài đặt camera?</summary><p>Bảo vệ đăng nhập để làm việc tại trạm. Ứng dụng yêu cầu mã bảo vệ khi mở màn hình quản lý dữ liệu hoặc mở khóa cài đặt camera.</p></details>
+          <details><summary>Cần những gì để vận hành tại bãi xe?</summary><p>Cần máy Windows tại quầy, đầu đọc RFID, camera IP, kết nối mạng nội bộ, cơ sở dữ liệu PostgreSQL và nơi lưu ảnh. Mỗi trạm được cấu hình theo thiết bị và vị trí của mình.</p></details>
+          <details><summary>Có thể vận hành bãi xe từ website này không?</summary><p>Website cung cấp thông tin dự án và mô phỏng trên trình duyệt. Việc vận hành thực tế diễn ra trong ứng dụng Windows tại quầy bảo vệ.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#dau-trang"><span class="brand-mark" aria-hidden="true">P</span> Smart<span class="brand-blue">Parking</span></a>
+      <p>Trang giới thiệu dự án quản lý bãi xe</p>
+      <a href="#dau-trang">Về đầu trang</a>
+    </div>
+  </footer>
+</body>
+</html>

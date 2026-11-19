@@ -1,0 +1,10 @@
+# Cấu hình Vercel và biến môi trường trên máy
+/.vercel/
+.env
+.env.*
+
+# Tệp tạm và metadata của hệ điều hành
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
