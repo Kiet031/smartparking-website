@@ -1,10 +1,10 @@
 # Website giới thiệu Smart Parking
 
-Trang web tiếng Việt giới thiệu quy trình gửi xe, tính năng, các bộ phận trong hệ thống và bản mô phỏng làn vào/làn ra. Website dùng HTML, CSS và JavaScript, chạy trực tiếp trong trình duyệt với dữ liệu giả lập.
+Trang web tiếng Việt giới thiệu cách Smart Parking kiểm tra xe vào/ra, quản lý thẻ và vé tháng, lưu lịch sử và sao lưu dữ liệu. Website dùng HTML, CSS và JavaScript, chạy trực tiếp trong trình duyệt.
 
 ## Xem trên máy
 
-Mở `public/index.html` trong trình duyệt. Ảnh, giao diện và bản mô phỏng nằm trong `public/`.
+Mở `public/index.html` trong trình duyệt. Chọn **Xe vào** hoặc **Xe ra** để đọc quy trình tương ứng. Mục **Hệ thống** có sơ đồ tương tác, mục **Hỏi đáp** có tìm kiếm tiếng Việt có dấu hoặc không dấu, và mục **GitHub** dẫn tới mã nguồn ứng dụng cùng trang Issues.
 
 ## Đưa riêng website lên GitHub
 
@@ -29,15 +29,15 @@ Nếu muốn dùng kho Smart Parking hiện có, chạy `git add -- website/` �
 1. Mở [Vercel New Project](https://vercel.com/new), chọn kho GitHub chứa website rồi bấm **Import**.
 2. Với kho riêng chứa trực tiếp `vercel.json` và `public/`, giữ **Root Directory** mặc định. Với kho Smart Parking, đặt **Root Directory** thành `website`.
 3. Bấm **Deploy**. Vercel phục vụ các tệp trong `public/` theo cấu hình đi kèm. Website chạy trực tiếp, không cần lệnh build hoặc biến môi trường.
-4. Mở đường dẫn Vercel cấp và thử nút **Thử mô phỏng** ở cả làn vào và làn ra.
+4. Mở đường dẫn Vercel cấp, kiểm tra ảnh, các tab quy trình và sơ đồ, ô tìm câu hỏi và liên kết GitHub.
 
 Tham chiếu [cấu hình build và thư mục gốc của Vercel](https://vercel.com/docs/builds/configure-a-build).
 
 ## Cập nhật nội dung
 
 - `public/index.html` chứa nội dung giới thiệu và câu hỏi thường gặp.
-- `public/styles.css` chứa bố cục và màu sắc.
-- `public/demo.js` chứa các bước của hai kịch bản giả lập.
-- `public/assets/cong-bai-xe.jpg` là ảnh minh họa cổng bãi xe, được tạo bằng ImageGen.
+- `public/styles.css` chứa bố cục, màu sắc, hiệu ứng và quy tắc cho màn hình nhỏ.
+- `public/site.js` xử lý menu, các tab quy trình và sơ đồ, tìm câu hỏi, sao chép liên kết GitHub và hiệu ứng khi cuộn.
+- `public/assets/` chứa ảnh minh họa cổng bãi xe và thao tác quẹt thẻ được tạo bằng ImageGen.
 
 Nội dung được tổng hợp từ mã nguồn và tài liệu của ứng dụng máy trực Smart Parking cùng dịch vụ SmartParking.Maintenance. Phần website công khai gồm các tệp trong `public/`. Việc vận hành bãi xe sử dụng ứng dụng Windows và hạ tầng nội bộ riêng.
